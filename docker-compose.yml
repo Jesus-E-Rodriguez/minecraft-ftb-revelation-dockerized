@@ -1,0 +1,17 @@
+version: '3'
+# TODO possible theory: server properties is copied after init and therefore is not used
+services:
+  minecraft:
+    build:
+      context: minecraft
+      dockerfile: ../Dockerfile
+    image: minecraft_local_server
+    container_name: minecraft
+    volumes:
+      - ./.envs/.minecraft/server.properties:/minecraft/server.properties
+      - ./minecraft/logs:/minecraft/logs:z
+    env_file:
+      - ./.envs/.minecraft/.jvm
+    ports:
+      - "25565:25565"
+    command: ./start
