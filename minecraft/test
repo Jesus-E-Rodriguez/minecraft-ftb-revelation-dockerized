@@ -10,30 +10,17 @@ eula_false() {
     return $?
 }
 
+# if eula.txt has not been signed, inform user
 if [ -f eula.txt ] && eula_false ; then
-    echo "Make sure to read eula.txt before playing!"
-    echo "To exit press <enter>"
+    echo "EULA has not been signed. Startup has been exited."
     read ignored
     exit
 fi
 
 # if eula.txt is missing inform user
 if [ ! -f eula.txt ]; then
-    echo "Missing eula.txt. Startup will fail and eula.txt will be created"
-    echo "Make sure to read eula.txt before playing!"
-    echo "To continue press <enter>"
+    echo "Missing eula.txt. Startup has been exited."
     read ignored
 fi
 
-while [ -e autostart.stamp ] ; do
-    rm -f autostart.stamp
-    echo "If you want to completely stop the server process now, press Ctrl+C before the time is up!"
-    for i in 5 4 3 2 1; do
-        echo "Restarting server in $i"
-        sleep 1
-    done
-    echo "Rebooting now!"
-    start_server
-    echo "Server process finished"
-done
-
+echo "All tests were completed successfully... continuing build..."

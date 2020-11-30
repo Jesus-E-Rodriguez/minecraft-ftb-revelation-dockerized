@@ -322,10 +322,3 @@ tags
 
 
 # Minecraft
-.mixin.out/
-world/
-snapshots-server
-local/
-patchouli_books/
-eula.txt
-!**/.gitkeep

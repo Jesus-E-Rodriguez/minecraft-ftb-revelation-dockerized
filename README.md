@@ -23,6 +23,9 @@ process of deploying this server to a single command. If that still isn't enough
 
 ## Additional Notes
 
+`Warning:` by using this project, you are automatically agreeing to the [EULA](https://account.mojang.com/documents/minecraft_eula). Please make sure you 
+understand what it is and how it affects you.
+
 What mods are included here? All the regular FTB Revelation mods, plus Gliby's Voice Chat Reloaded. If you'd like to add more mods, 
 just add them to the `minecraft/mod` folder.
 
