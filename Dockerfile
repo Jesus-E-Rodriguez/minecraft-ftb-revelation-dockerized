@@ -17,8 +17,6 @@ COPY . .
 # Create world directory
 RUN mkdir -p /minecraft/world
 
-RUN ls
-
 # Set up scripts
 RUN sed -i 's/\r$//g' test
 RUN chmod +x test
