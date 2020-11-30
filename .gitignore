@@ -317,9 +317,6 @@ tags
 
 .ipython/
 .env
-.envs/*
-!.envs/.local/
-
 
 # Minecraft
 .mixin.out/
