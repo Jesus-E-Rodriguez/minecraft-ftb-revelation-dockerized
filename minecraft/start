@@ -6,7 +6,7 @@ set -o nounset
 
 # server function
 start_server() {
-    "$JAVACMD" -server -Xmx${MAX_RAM} ${JAVA_PARAMETERS} -jar FTBserver-1.12.2-14.23.5.2846-universal.jar nogui
+    "$JAVA_CMD" -server ${JAVA_PARAMETERS} -jar FTBserver-1.12.2-14.23.5.2846-universal.jar nogui
 }
 
 echo "Starting server"
