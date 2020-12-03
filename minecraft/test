@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
 
 # Fix work directory
 # Some GUIs set wrong working directory which breaks relative paths
