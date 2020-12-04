@@ -1,7 +1,7 @@
 # FTB Revelation Dockerized Version
 [![minecraft](https://img.shields.io/badge/minecraft-1.12.2-green.svg)](https://www.minecraft.net/en-us)
-[![ftb](https://img.shields.io/badge/ftb-3.4.0-orange.svg)](https://www.python.org)
-[![forgejar](https://img.shields.io/badge/forgejar-1.12.2.14.23.5.28.46-purple.svg)](https://www.python.org)
+[![ftb](https://img.shields.io/badge/ftb-3.4.0-orange.svg)](https://www.feed-the-beast.com/)
+[![forgejar](https://img.shields.io/badge/forgejar-1.12.2.14.23.5.28.46-purple.svg)](https://www.feed-the-beast.com/modpack/ftb_revelation)
 
 
 ## What is this for?
