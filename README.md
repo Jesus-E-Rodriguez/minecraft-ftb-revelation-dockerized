@@ -4,7 +4,7 @@
 ## What is this for?
 This project allows you to spin up a FTB Revelation server with one simple command:
 
-    $ docker-compose up
+    $ ./start.sh
     
 ## Table of contents
 
@@ -21,13 +21,25 @@ This project allows you to spin up a FTB Revelation server with one simple comma
 Docker allows for standardization of application deployments across various types of operation systems. And for you, it simplifies the 
 process of deploying this server to a single command. If that still isn't enough to convince you, then check out their [explanation](https://www.docker.com/resources/what-container).
 
+Once you have the repo in your system and have downloaded Docker, open up a terminal or command prompt. Navigate to the proper folder, and
+run the following command (note: the `$` indicates this is a console command. It does not need to be copied):
+
+    $ ./start.sh
+
 ## Additional Notes
 
-What mods are included here? All the regular FTB Revelation mods, plus Gliby's Voice Chat Reloaded. If you'd like to add more mods, 
+`Warning:` by using this project, you are automatically agreeing to the [EULA](https://account.mojang.com/documents/minecraft_eula). Please make sure you 
+understand what it is and how it affects you.
+
+What mods are included here? All the regular FTB Revelation mods, plus Gliby's Voice Chat Reloaded. Note, you will need to add If you'd like to add more mods, 
 just add them to the `minecraft/mod` folder.
 
 You will also need to download the client to connect to the server. Instructions for that are outlined below.
 
+Once the container is running, you can op yourself with the following command (Note that players you op must have logged into
+the server at least once, including yourself.):
+
+    $ docker-compose run minecraft python3 management/op.py TheNameOfYourPlayer
 
 ### Client Instructions
 
@@ -39,7 +51,8 @@ Click on `Show all versions` and download the version that matches your Minecraf
 I.e, if your Minecraft version is 1.12.2, then choose the same version.
 
 Once downloaded, open up FTB and hover over `FTB Revelation` and click the `...More`. Once there click the 
-`Open Folder` button. Open the `mods` folder, and place the downloaded Optifine jar file in there.
+`Open Folder` button. Open the `mods` folder, and place the downloaded Optifine jar file in there. If you need more step
+by step instructions, please check [here](https://ftb.gamepedia.com/Shaders_(programs)).
 
 `Warning:` You may not have enough ram for the mod pack. In order to increase ram,
 click the play button on `FTB Revelation`. When the Minecraft launcher initializes, click `Installations` tab.

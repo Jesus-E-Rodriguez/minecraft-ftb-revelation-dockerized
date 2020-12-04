@@ -1,3 +1,3 @@
 JAVA_CMD="java"
-JAVA_PARAMETERS="-Dfml.queryResult=confirm -Xmx6144M -Xms4608M -XX:+CMSIncrementalPacing -XX:+CMSClassUnloadingEnabled -XX:ParallelGCThreads=5 -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10"
+JAVA_PARAMETERS="-Dfml.queryResult=confirm -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -Xmx6144M -Xms4096M -XX:+CMSIncrementalPacing -XX:+CMSClassUnloadingEnabled -XX:ParallelGCThreads=5 -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10"
 JAR_FILENAME="forge-1.12.2-14.23.5.2846-universal.jar"

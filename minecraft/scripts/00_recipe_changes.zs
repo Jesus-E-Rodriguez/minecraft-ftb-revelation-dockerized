@@ -183,7 +183,7 @@ recipes.addShapeless(<harvestcraft:barleyseeditem> * 2,
 
 	#Steel Casing
 recipes.addShapeless(<ic2:casing:5> * 2, 
-	[<thermalfoundation:material:352>,<ic2:forge_hammer>]
+	[<thermalfoundation:material:352>,<ic2:forge_hammer:*>]
 );
 
 	#Essence of Scornful Oblivion
@@ -245,6 +245,24 @@ recipes.addShaped(<railcraft:manipulator:2>,
 		[<ore:ingotSteel>, <ore:dustRedstone>, <ore:ingotSteel>],
 		[<ore:dustRedstone>, <railcraft:manipulator>, <ore:dustRedstone>],
 		[<ore:ingotSteel>, <thermalfoundation:tool.shovel_steel>, <ore:ingotSteel>]
+	]
+);
+
+	#Fix broken recipe
+recipes.remove(<extrautils2:machine>.withTag({Type: "extrautils2:generator_slime"}));
+recipes.addShaped(<extrautils2:machine>.withTag({Type: "extrautils2:generator_slime"}), 
+	[
+		[<minecraft:slime_ball:*>, <minecraft:slime_ball:*>, <minecraft:slime_ball:*>], 
+		[<minecraft:slime_ball:*>, <ore:blockSlime>, <minecraft:slime_ball:*>], 
+		[<ore:dustRedstone>, <extrautils2:machine>.withTag({Type: "extrautils2:generator"}), <ore:dustRedstone>]
+	]
+);
+
+	#Fix recipe conflict
+recipes.remove(<tconstruct:rack>);
+recipes.addShaped(<tconstruct:rack>.withTag({textureBlock: {id: "minecraft:wooden_slab", Count: 1 as byte, Damage: 0 as short}}), 
+	[
+		[<minecraft:wooden_slab>, <minecraft:stick>, <minecraft:wooden_slab>]
 	]
 );
 

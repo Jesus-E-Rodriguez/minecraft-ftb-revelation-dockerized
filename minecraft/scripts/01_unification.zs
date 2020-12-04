@@ -3,6 +3,10 @@
 
 print("Initializing 'unification.zs'...");
 
+
+val nuggetIridium = <ore:nuggetIridium>;
+val ingotIridium = <ore:ingotIridium>;
+
 	#Fix tin recipes
 recipes.remove(<thermalfoundation:material:257>);
 recipes.addShaped(<thermalfoundation:material:257>, [[null, <ore:ingotTin>, null], [<ore:ingotTin>, <ore:ingotIron>, <ore:ingotTin>], [null, <ore:ingotTin>, null]]);
@@ -186,4 +190,32 @@ recipes.addShapeless(<thaumcraft:plate:2>,
 recipes.addShapeless(<thaumcraft:plate:3>,
 	[<immersiveengineering:tool>, <thaumcraft:ingot:1>]
 );
+
+furnace.addRecipe(<minecraft:bread>, <harvestcraft:flouritem>, 0.5);
+
+nuggetIridium.add(<ic2:misc_resource:2>);
+nuggetIridium.add(<thermalfoundation:material:199>);
+ingotIridium.add(<ic2:misc_resource:1>);
+ingotIridium.add(<thermalfoundation:material:135>);
+
+# Jetpack Attachment
+recipes.remove(<ic2:crafting:37>);
+recipes.addShaped(<ic2:crafting:37>,
+	[
+		[<ore:nuggetIridium>, <ore:plateAdvancedAlloy>, <ore:nuggetIridium>],
+		[<ore:plateCarbon>, <ore:plateSteel>, <ore:plateCarbon>],
+		[<ore:nuggetIridium>, <ore:plateAdvancedAlloy>, <ore:nuggetIridium>]
+	]
+);
+
+# Iridium Reinforced Plate
+recipes.remove(<ic2:crafting:4>);
+recipes.addShaped(<ic2:crafting:4>,
+	[
+		[<ore:ingotIridium>, <ore:plateAdvancedAlloy>, <ore:ingotIridium>],
+		[<ore:plateAdvancedAlloy>, <ore:gemDiamond>, <ore:plateAdvancedAlloy>],
+		[<ore:ingotIridium>, <ore:plateAdvancedAlloy>, <ore:ingotIridium>]
+	]
+);
+
 print("Initialized 'unification.zs'");
