@@ -5,7 +5,7 @@
 
 
 ## What is this for?
-This project allows you to spin up a FTB Revelation server with one simple command:
+This project allows you to spin up a Minecraft FTB Revelation server with one simple command:
 
     $ ./start.sh
     
