@@ -6,7 +6,8 @@ set -o nounset
 
 # server function
 start_server() {
-    "$JAVA_CMD" -server "${JAVA_PARAMETERS}" -jar "${JAR_FILENAME}" nogui
+  cd $WORKING_DIR
+  $JAVA_CMD -server "${JAVA_PARAMETERS}" -jar $JAR_FILENAME nogui
 }
 
 echo "Starting server"
