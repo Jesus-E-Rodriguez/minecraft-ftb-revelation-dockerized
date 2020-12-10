@@ -36,7 +36,7 @@ wheels/
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+# Unit entrypoint / coverage reports
 htmlcov/
 .tox/
 .coverage
@@ -100,7 +100,7 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# nyc test coverage
+# nyc entrypoint coverage
 .nyc_output
 
 # Bower dependency directory (https://bower.io/)
@@ -365,7 +365,7 @@ wheels/
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+# Unit entrypoint / coverage reports
 htmlcov/
 .tox/
 .coverage
@@ -430,7 +430,7 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# nyc test coverage
+# nyc entrypoint coverage
 .nyc_output
 
 # Bower dependency directory (https://bower.io/)

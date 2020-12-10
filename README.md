@@ -8,12 +8,15 @@
 This project allows you to spin up a Minecraft FTB Revelation server with one simple command:
 
     $ ./start.sh
+
+The project is also compatible with the Raspberry Pi.
     
 ## Table of contents
 - [Quick Start](#quick-start)
 - [Deployment Instructions](#deployment-instructions)
 - [Client Instructions](#client-instructions)
 - [Additional Notes](#additional-notes)
+- [Raspberry Pi Instructions](#raspberry-pi-instructions)
 
 ## Quick start
 You can do either of the following:
@@ -67,18 +70,77 @@ ip `0`. Otherwise, you will need to figure out the ip of the server running inst
 
 ## Additional Notes
 
-`Warning:` by using this project, you are automatically agreeing to the [EULA](https://account.mojang.com/documents/minecraft_eula). Please make sure you
+`Warning:` by using this project, you automatically agree to the [EULA](https://account.mojang.com/documents/minecraft_eula). Please make sure you
 understand what it is and how it affects you.
 
-`Note:` Remember this is only the server you connect to. You will also need to download the client 
+`Note:` Remember this is only the server you connect to. You will also need to download the client
 which then connects to this server. Instructions for that are outlined above.
 
-What mods are included here? All the regular FTB Revelation mods, plus Gliby's Voice Chat Reloaded. 
+What mods are included here? All the regular FTB Revelation mods, plus Gliby's Voice Chat Reloaded.
 Note, you will need to add it to your client mod folder as well. If you'd like to add more mods,
-just add them to the `minecraft/mod` folder, but keep in mind that they need to match what is in 
+just add them to the `minecraft/mod` folder, but keep in mind that they need to match what is in
 your client mod folder.
 
-Once the container is running, you can op yourself with the following command 
+Once the container is running, you can op yourself with the following command
 (Note that players you op must have logged into the server at least once, including yourself):
 
     $ docker-compose run minecraft python3 management/op.py TheNameOfYourPlayer
+    $ docker restart minecraft
+
+## Raspberry Pi Instructions
+
+`Note:` This will not work on any 32-bit OS such as Raspian. This is simply due to the way Java 
+allocates memory. As such, you will need to run it on an Ubuntu 64-bit OS. The version that was used for
+this project was Ubuntu Server 20.04.1 LTS. As stated before, you will need Docker installed on the system.
+
+Git clone this project in a directory of your choice, and run:
+
+    $ ./start.sh
+
+If you are installing this alongside an [IOTstack](https://github.com/SensorsIot/IOTstack), I have some recommendations.
+You should install this project in the `volumes` directory like so:
+
+    $ cd ~/IOTstack/volumes
+    $ git clone https://github.com/Jesus-E-Rodriguez/minecraft-ftb-revelation-dockerized.git minecraft
+
+The reason is that the minecraft directory is already bound to the minecraft directory of the container image, essentially
+acting as a volume mapping. Therefore, if you want to back up your minecraft world, you should backup the minecraft
+directory.
+
+Make sure the EULA is created and signed with:
+
+    $ cd minecraft
+    $ ./eula.sh
+    
+Then move up to the directory above volumes:
+
+    $ cd ~/IOTstack
+    $ cd ls
+
+This directory should contain the `docker-compose.yml` file, you can edit it with the following command:
+
+    $ sudo vi docker-compose.yml
+
+Press `i` to edit the file and paste (note this should be pasted in the services column after any other services. The
+order doesn't matter, but the alignment between different services does):
+
+```yaml
+  minecraft:
+    build:
+      context: ./volumes/minecraft
+      dockerfile: ./compose/minecraft/Dockerfile
+    image: minecraft_server
+    restart: unless-stopped
+    container_name: minecraft
+    env_file:
+      - ./volumes/minecraft/.envs/.minecraft/.jvm
+    volumes:
+      - ./volumes/minecraft/minecraft:/minecraft:z
+    ports:
+      - "25565:25565"
+    command: /start
+```
+
+Then press the `esc` button and type `:wq`. Afterwards you can run the container with the typical docker commands. Such as:
+
+    $ docker-compose up -d

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+# Fix work directory
+# Some GUIs set wrong working directory which breaks relative paths
+cd -- "$(dirname "$0")"
+
+EULA_LOCATION="$WORKING_DIR/eula.txt"
+
+# check eula.txt
+eula_false() {
+    grep -q 'eula=false' $EULA_LOCATION
+    return $?
+}
+
+# if eula.txt is missing inform user
+if [ ! -f $EULA_LOCATION ]; then
+    echo "Missing eula.txt. Startup has been exited."
+    read -r ignored
+    exit
+fi
+
+# if eula.txt has not been signed, inform user
+if [ -f $EULA_LOCATION ] && eula_false ; then
+    echo "EULA has not been signed. Startup has been exited."
+    read -r ignored
+    exit
+fi
+
+echo "All tests were completed successfully... continuing build..."
+exec "$@"
