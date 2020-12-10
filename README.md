@@ -84,7 +84,7 @@ your client mod folder.
 Once the container is running, you can op yourself with the following command
 (Note that players you op must have logged into the server at least once, including yourself):
 
-    $ docker-compose run minecraft python3 management/op.py TheNameOfYourPlayer
+    $ docker-compose run minecraft python3 minecraft/management/op.py TheNameOfYourPlayer
     $ docker restart minecraft
 
 ## Raspberry Pi Instructions
@@ -132,8 +132,14 @@ order doesn't matter, but the alignment between different services does):
     image: minecraft_server
     restart: unless-stopped
     container_name: minecraft
-    env_file:
-      - ./volumes/minecraft/.envs/.minecraft/.jvm
+    environment:
+      JAVA_PARAMETERS: >
+        -Dfml.queryResult=confirm -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions
+        -Xmx6144M -Xms4096M -XX:+UseConcMarkSweepGC -XX:+UseParNewGC
+        -XX:+CMSIncrementalPacing -XX:+CMSClassUnloadingEnabled
+        -XX:ParallelGCThreads=5 -XX:+AggressiveOpts
+        -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10
+      JAR_FILENAME: forge-1.12.2-14.23.5.2846-universal.jar
     volumes:
       - ./volumes/minecraft/minecraft:/minecraft:z
     ports:
