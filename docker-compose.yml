@@ -9,7 +9,6 @@ services:
     restart: unless-stopped
     container_name: minecraft
     environment:
-      JAVA_CMD: java
       JAVA_PARAMETERS: >
         -Dfml.queryResult=confirm -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions
         -Xmx6144M -Xms4096M -XX:+UseConcMarkSweepGC -XX:+UseParNewGC
