@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./compose/minecraft/Dockerfile
     image: minecraft_local_server
-#    restart: unless-stopped
+    restart: unless-stopped
     container_name: minecraft
     env_file:
       - ./.envs/.minecraft/.jvm
