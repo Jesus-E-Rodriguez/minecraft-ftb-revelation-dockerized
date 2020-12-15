@@ -63,7 +63,7 @@ Once downloaded, open up FTB and hover over `FTB Revelation` and click the `...M
 Then launch FTB Minecraft. Once opened, click `Options` and then `Video Settings` and then `Shaders...`
 and click on the `SEUS-Renewed-v1.0.1.zip`. Depending on your ram specifications, your game
 make take some time to apply the shaders. If instead it crashes, you may not have enough 
-ram available. If that is the case please read above to learn how to allow more ram to your client instance.
+ram available. If that is the case, please read above to learn how to allow more ram to your client instance.
 
 If you are running the client in the same host, then you can connect to the server with the following
 ip `0`. Otherwise, you will need to figure out the ip of the server running instance.
@@ -85,6 +85,15 @@ Once the container is running, you can op yourself with the following command
 (Note that players you op must have logged into the server at least once, including yourself):
 
     $ docker-compose run minecraft python3 minecraft/management/op.py TheNameOfYourPlayer
+    $ docker restart minecraft
+
+You can edit any server properties by editing the properties file located at `minecraft/server.properties`. 
+But please note that you should stop the minecraft server prior to editing the file:
+
+    $ docker stop minecraft
+
+After you have made the changes, you can simply restart the container if it had already been running:
+
     $ docker restart minecraft
 
 ## Raspberry Pi Instructions
