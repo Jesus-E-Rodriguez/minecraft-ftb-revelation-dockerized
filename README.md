@@ -38,7 +38,10 @@ command. It does not need to be copied):
     $ ./start.sh
 
 ## Client Instructions
-Download [feed the beast](https://www.feed-the-beast.com/). Once downloaded, open the FTB app
+`Note:` The following assumes you already have the Java version of Minecraft installed on your system.
+If not you will need to [purchase](https://www.minecraft.net/en-us/store/minecraft-java-edition) it first.
+
+Afterwards, download [feed the beast](https://www.feed-the-beast.com/). Once downloaded, open the FTB app
 and click on the home tab. Once there click on `Featured Packs` and download `FTB Revelation`.
 
 `Warning:` You may not have enough ram for the mod pack. In order to increase ram,
@@ -49,8 +52,8 @@ anywhere from 6GB to 8GB. Remember, you can only make this change if your comput
 actual amount of available ram you specified.
 
 For quality shaders, first download [Optifine](https://optifine.net/downloads).
-Click on `Show all versions` and download the version that matches your Minecraft version.
-I.e, if your Minecraft version is 1.12.2, then choose the same version.
+Click on `Show all versions` and download the 1.12.2 version, as it needs to match the same version
+of Minecraft.
 
 Once downloaded, open up FTB and hover over `FTB Revelation` and click the `...More`. Once there click the
 `Open Folder` button. Open the `mods` folder, and place the downloaded Optifine jar file in there. 
@@ -129,7 +132,7 @@ This directory should contain the `docker-compose.yml` file, you can edit it wit
 
     $ sudo vi docker-compose.yml
 
-Press `i` to edit the file and paste (note this should be pasted in the services column after any other services. The
+Press `i` to edit the file and paste (note this should be pasted in the services' column after any other services. The
 order doesn't matter, but the alignment between different services does):
 
 ```yaml
