@@ -333,7 +333,16 @@ snapshots-server/
 !snapshots-server/.gitkeep
 world/
 !world/.gitkeep
+backups/
+!backups/.gitkeep
 eula.txt
 usercache.json
 usernamecache.json
 crash-reports/
+world-*/
+
+minecraft/config/IC2.ini
+minecraft/config/astralsorcery/amulet_enchantments.cfg
+minecraft/config/exchangers.cfg
+minecraft/config/integrationforegoing.cfg
+minecraft/config/enderio/EnderIO.cfg
