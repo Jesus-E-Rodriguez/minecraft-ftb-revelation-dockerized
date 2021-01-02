@@ -339,7 +339,7 @@ eula.txt
 usercache.json
 usernamecache.json
 crash-reports/
-world-*/
+world-*.zip
 
 minecraft/config/IC2.ini
 minecraft/config/astralsorcery/amulet_enchantments.cfg
