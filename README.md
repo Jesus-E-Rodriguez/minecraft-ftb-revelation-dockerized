@@ -145,11 +145,11 @@ order doesn't matter, but the alignment between different services does):
     container_name: minecraft
     environment:
       JAVA_PARAMETERS: >
-        -Dfml.queryResult=confirm -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions
-        -Xmx6144M -Xms4096M -XX:+UseConcMarkSweepGC -XX:+UseParNewGC
-        -XX:+CMSIncrementalPacing -XX:+CMSClassUnloadingEnabled
-        -XX:ParallelGCThreads=5 -XX:+AggressiveOpts
-        -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10
+        -Dfml.queryResult=confirm -Xmx6144M -Xms4096M
+        -XX:+UseParNewGC -XX:+CMSIncrementalPacing
+        -XX:+CMSClassUnloadingEnabled -XX:ParallelGCThreads=5
+        -XX:+AggressiveOpts -XX:MinHeapFreeRatio=5 
+        -XX:MaxHeapFreeRatio=10
       JAR_FILENAME: forge-1.12.2-14.23.5.2846-universal.jar
     volumes:
       - ./volumes/minecraft/minecraft:/minecraft:z
